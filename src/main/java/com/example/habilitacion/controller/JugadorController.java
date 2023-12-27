@@ -13,8 +13,26 @@ import java.util.Optional;
 public class JugadorController {
     @Autowired
     JugadorRepository jugadorRepository;
-    @GetMapping()
-    public List<Jugador> getJugadorAll() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*@GetMapping()
+    public List<Jugador> getJugadoresByClase() {
 
         List<Jugador> jugadores = jugadorRepository.findAll();
         return jugadores;
@@ -32,4 +50,5 @@ public class JugadorController {
         }
         return null;
     }
+     */
 }
