@@ -3,8 +3,6 @@ package com.example.habilitacion.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @Entity
@@ -26,7 +24,4 @@ public class Habilidad implements Serializable {
     @ManyToOne
     @JoinColumn(name = "rango_id")
     private Rango rango;
-
-    @ManyToMany(mappedBy = "habilidades")
-    private Set<Jugador> jugadores = new HashSet<>();
 }

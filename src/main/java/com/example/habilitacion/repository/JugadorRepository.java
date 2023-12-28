@@ -13,5 +13,4 @@ public interface JugadorRepository extends JpaRepository<Jugador, Integer> {
 
     List<Jugador> findByClaseId(Integer claseId);
     Optional<Jugador> findNuuidByNombre(String nombre);
-    Optional<Jugador> findHabilidadesByJugador(String nuuid);
 }

@@ -4,9 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Data
 @Table(name = "jugador", schema = "public")
@@ -44,12 +41,4 @@ public class Jugador implements Serializable {
     @ManyToOne
     @JoinColumn(name = "clase_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Clase clase;
-
-    @ManyToMany
-    @JoinTable(
-            name = "jugador_habilidad",
-            joinColumns = @JoinColumn(name = "jugador_id"),
-            inverseJoinColumns = @JoinColumn(name = "habilidad_id")
-    )
-    private Set<Habilidad> habilidades = new HashSet<>();
 }
