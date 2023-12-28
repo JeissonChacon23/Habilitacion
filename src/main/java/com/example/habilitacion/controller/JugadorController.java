@@ -1,5 +1,6 @@
 package com.example.habilitacion.controller;
 
+import com.example.habilitacion.entity.Habilidad;
 import com.example.habilitacion.entity.Jugador;
 import com.example.habilitacion.repository.JugadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,19 +40,27 @@ public class JugadorController {
         jugadorRepository.save(jugador);
         return jugador;
     }
-    /*@PostMapping("/create")
-    public Jugador create(@RequestBody Jugador jugador) {
-        jugadorRepository.save(jugador);
-        return jugador;
-    }*/
+    /*@GetMapping("/{jugadorId}/habilidades")
+    public ResponseEntity<List<Habilidad>> obtenerHabilidadesDeJugador(@PathVariable Integer jugadorId) {
+        Optional<Jugador> jugadorOptional = jugadorRepository.findById(jugadorId);
 
-    /*@PostMapping
-    public ResponseEntity<String> crearJugador(@RequestBody Jugador nuevoJugador) {
-        try {
-            jugadorRepository.save(nuevoJugador);
-            return new ResponseEntity<>("Jugador creado exitosamente", HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error al crear el jugador: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        if (jugadorOptional.isPresent()) {
+            Jugador jugador = jugadorOptional.get();
+            List<Habilidad> habilidades = jugador.getHabilidades();
+            return ResponseEntity.ok(habilidades);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }*/
+    /*@GetMapping
+    *
+    public String getHabilidadesByJugador(@RequestParam("nuuid") String nuuid) {
+        Optional<Jugador> jugador = jugadorRepository.findHabilidadesByJugador(nuuid);
+    jugador.get().
+        return jugador.isPresent() ? jugador.get().getNuuid() == null ? "El nuuid del jugador " + nombre +" es nulo" : jugador.get().getNuuid() : "Jugador " + nombre + " No existe";
+    }
+
+     */
+
+
 }
