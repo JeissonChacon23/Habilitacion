@@ -2,27 +2,26 @@ package com.example.habilitacion.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Entity
+@Table(name = "habilidad", schema = "public")
 public class Habilidad implements Serializable {
     @Id
-    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name="nombre")
+
+    @Column(name = "nombre")
     private String nombre;
-    @Column(name="descripcion")
+
+    @Column(name = "descripcion", columnDefinition = "text")
     private String descripcion;
-    @Column(name="nuuid")
-    private Integer nuuid;
 
-    @Column(name="rango")
-    private Integer rango;
+    @Column(name = "nuuid", length = 100)
+    private String nuuid;
 
-    @ManyToMany
-    private List<Jugador> jugadores = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "rango_id")
+    private Rango rango;
 }
