@@ -31,4 +31,22 @@ public class JugadorController {
 
         return jugador.isPresent() ? jugador.get().getNuuid() == null ? "El nuuid del jugador " + nombre +" es nulo" : jugador.get().getNuuid() : "Jugador " + nombre + " No existe";
     }
+    /*@PostMapping("/create")
+    public Jugador create(@RequestBody Jugador jugador) {
+        jugadorRepository.save(jugador);
+        return jugador;
+    }*/
+
+    /*@PostMapping
+    public ResponseEntity<String> crearJugador(@RequestBody Jugador nuevoJugador) {
+        try {
+            // Puedes hacer validaciones adicionales aquí antes de guardar en la base de datos
+            jugadorRepository.save(nuevoJugador);
+            return new ResponseEntity<>("Jugador creado exitosamente", HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al crear el jugador: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+     */
 }

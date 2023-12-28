@@ -40,4 +40,5 @@ public class Jugador implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "clase_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private Clase clase;}
+    private Clase clase;
+}
