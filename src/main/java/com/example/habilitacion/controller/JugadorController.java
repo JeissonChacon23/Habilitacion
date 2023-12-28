@@ -40,6 +40,8 @@ public class JugadorController {
         jugadorRepository.save(jugador);
         return jugador;
     }
+
+    
     /*@GetMapping("/{jugadorId}/habilidades")
     public ResponseEntity<List<Habilidad>> obtenerHabilidadesDeJugador(@PathVariable Integer jugadorId) {
         Optional<Jugador> jugadorOptional = jugadorRepository.findById(jugadorId);
